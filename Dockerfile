@@ -17,14 +17,20 @@ RUN mkdir /usr/local/davmail && \
   chown davmail:davmail /var/log/davmail -R
 
 COPY davmail.sh /usr/local/bin/
+COPY davmail.properties /etc/davmail/
 
-VOLUME        /etc/davmail
+# VOLUME        /etc/davmail
 
-EXPOSE        1080
-EXPOSE        1143
-EXPOSE        1389
-EXPOSE        1110
-EXPOSE        1025
+# EXPOSE        1080
+# EXPOSE        1143
+# EXPOSE        1389
+# EXPOSE        1110
+# EXPOSE        1025
+
+EXPOSE        143
+EXPOSE        110
+EXPOSE        25
+
 WORKDIR       /usr/local/davmail
 
 USER davmail
